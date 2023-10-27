@@ -1,0 +1,13 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "fileTypes": ["jsp", "jspf", "tag"],
+    "scopeName": "source.jsp.nested",
+    "injectionSelector": [
+        "L:string.quoted.double",
+        "L:string.quoted.single"
+    ],
+    "patterns": [
+        { "match": "&&", "name": "keyword.operator.logical.java" },
+        { "include": "source.jsp" }
+    ]
+}

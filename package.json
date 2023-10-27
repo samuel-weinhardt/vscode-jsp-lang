@@ -1,0 +1,51 @@
+{
+    "name": "vscode-jsp-lang",
+    "displayName": "JSP Language Support",
+    "description": "JSP syntax highlighting for VS Code",
+    "version": "0.0.1",
+    "publisher": "samuel-weinhardt",
+    "engines": {
+        "vscode": "^1.64.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "jsp",
+                "aliases": [
+                    "Jakarta Server Pages",
+                    "JavaServer Pages",
+                    "Java Server Pages",
+                    "JSP",
+                    "JSTL",
+                    "jstl"
+                ],
+                "extensions": [
+                    ".jsp",
+                    ".jspf",
+                    ".tag"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "jsp",
+                "scopeName": "source.jsp",
+                "path": "./syntaxes/jsp.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.java": "java"
+                }
+            },
+            {
+                "scopeName": "source.jsp.nested",
+                "path": "./syntaxes/jsp.nested.tmLanguage.json",
+                "injectTo": [
+                    "source.jsp"
+                ]
+            }
+        ]
+    }
+}

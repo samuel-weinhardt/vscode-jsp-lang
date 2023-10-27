@@ -1,0 +1,51 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Jakarta Server Pages",
+    "fileTypes": ["jsp", "jspf", "tag"],
+    "scopeName": "source.jsp",
+    "patterns": [
+        { "include": "#comment" },
+        { "include": "#scriptlet" },
+        { "include": "#expression" },
+        { "include": "text.xml" },
+        { "include": "text.html.basic" }
+    ],
+    "repository": {
+        "comment": {
+            "name": "comment.block.jsp",
+            "begin": "<%--",
+            "end": "--%>"
+        },
+        "scriptlet": {
+            "name": "meta.tag.xml",
+            "contentName": "meta.embedded.block.java",
+            "begin": "(<)(%)",
+            "end": "(%)(>)",
+            "beginCaptures": {
+                "1": { "name": "punctuation.definition.tag.xml" },
+                "2": { "name": "entity.name.tag.xml" }
+            },
+            "endCaptures": {
+                "1": { "name": "entity.name.tag.xml" },
+                "2": { "name": "punctuation.definition.tag.xml" }
+            },
+            "patterns": [{ "include": "source.java" }]
+        },
+        "expression": {
+            "name": "string.template.jsp",
+            "contentName": "meta.embedded.block.java",
+            "begin": "\\$\\{",
+            "end": "\\}",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.template-expression.begin.jsp" }
+            },
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.template-expression.end.jsp" }
+            },
+            "patterns": [
+                { "match": "\\\\.", "name": "constant.character.escape.jsp" },
+                { "include": "source.java" }
+            ]
+        }
+    }
+}
