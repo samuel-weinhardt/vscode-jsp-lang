@@ -1,5 +1,18 @@
-# vscode-jsp-lang
+# JSP Language Support
 
 This extension provides basic syntax highlighting support for JSP files in VS Code.
 
-**Beware!** This implementation is precariously perched upon a number of shortcuts, and is not entirely reliable.
+## Limitations
+
+Some JSP patterns are not handled correctly, such as [fragmented scriptlets](https://github.com/jakartaee/pages/blob/master/spec/src/main/asciidoc/ServerPages.adoc#1122-scriptlets). For example:
+
+```jsp
+ <% if
+ (Calendar.getInstance().get(Calendar.AM_PM) == Calendar.AM) {%>
+ Good Morning
+ <% } else { %>
+ Good Afternoon
+ <% } %>
+```
+
+Contributions are welcome. Please open a pull request.
