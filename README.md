@@ -1,6 +1,6 @@
 # JSP Language Support
 
-This extension provides basic syntax highlighting support for JSP files in VS Code.
+This extension provides basic syntax highlighting support for Jakarta Server Pages (JSP; formerly JavaServer Pages) in VS Code.
 
 ## Limitations
 
