@@ -4,6 +4,9 @@
     "description": "JSP syntax highlighting for VS Code",
     "version": "0.0.1",
     "publisher": "samuel-weinhardt",
+    "repository": {
+        "url": "https://github.com/samuel-weinhardt/vscode-jsp-lang"
+    },
     "engines": {
         "vscode": "^1.64.0"
     },
