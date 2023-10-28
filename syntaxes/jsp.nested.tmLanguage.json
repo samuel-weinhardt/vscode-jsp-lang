@@ -3,11 +3,9 @@
     "fileTypes": ["jsp", "jspf", "tag"],
     "scopeName": "source.jsp.nested",
     "injectionSelector": [
-        "L:string.quoted.double",
-        "L:string.quoted.single"
+        "string.quoted.double -meta.embedded.block.scriptlet.jsp",
+        "string.quoted.single -meta.embedded.block.scriptlet.jsp",
+        "meta.tag.xml -meta.embedded.block.scriptlet.jsp"
     ],
-    "patterns": [
-        { "match": "&&", "name": "keyword.operator.logical.java" },
-        { "include": "source.jsp" }
-    ]
+    "patterns": [{ "include": "source.jsp" }]
 }

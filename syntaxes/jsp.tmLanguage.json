@@ -18,7 +18,7 @@
         },
         "scriptlet": {
             "name": "meta.tag.xml",
-            "contentName": "meta.embedded.block.java",
+            "contentName": "meta.embedded.block.scriptlet.jsp meta.embedded.block.java",
             "begin": "(<)(%)",
             "end": "(%)(>)",
             "beginCaptures": {
@@ -29,11 +29,17 @@
                 "1": { "name": "entity.name.tag.xml" },
                 "2": { "name": "punctuation.definition.tag.xml" }
             },
-            "patterns": [{ "include": "source.java" }]
+            "patterns": [
+                {
+                    "match": "\\{\\s*((?=%>)|$)",
+                    "comment": "consume trailing curly brackets for fragmented scriptlets"
+                },
+                { "include": "source.java" }
+            ]
         },
         "expression": {
             "name": "string.template.jsp",
-            "contentName": "meta.embedded.block.java",
+            "contentName": "meta.embedded.block.expression.jsp meta.embedded.block.java",
             "begin": "\\$\\{",
             "end": "\\}",
             "beginCaptures": {
