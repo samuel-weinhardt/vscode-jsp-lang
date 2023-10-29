@@ -2,7 +2,7 @@
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "Jakarta Server Pages",
     "fileTypes": ["jsp", "jspf", "tag"],
-    "scopeName": "source.jsp",
+    "scopeName": "text.html.jsp",
     "patterns": [
         { "include": "#comment" },
         { "include": "#directive" },
@@ -20,7 +20,7 @@
         "L:(string.quoted.single.html | string.quoted.double.html) -meta.embedded.block": {
             "patterns": [
                 { "include": "#expression" },
-                { "include": "text.xml" }
+                { "include": "text.html.derivative" }
             ],
             "comment": "also allow expressions and tags within xml strings"
         }

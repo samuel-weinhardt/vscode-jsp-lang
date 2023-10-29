@@ -37,7 +37,7 @@
         "grammars": [
             {
                 "language": "jsp",
-                "scopeName": "source.jsp",
+                "scopeName": "text.html.jsp",
                 "path": "./syntaxes/jsp.tmLanguage.json",
                 "embeddedLanguages": {
                     "meta.embedded.block.java": "java"
