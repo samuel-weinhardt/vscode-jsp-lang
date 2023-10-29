@@ -42,13 +42,6 @@
                 "embeddedLanguages": {
                     "meta.embedded.block.java": "java"
                 }
-            },
-            {
-                "scopeName": "source.jsp.nested",
-                "path": "./syntaxes/jsp.nested.tmLanguage.json",
-                "injectTo": [
-                    "source.jsp"
-                ]
             }
         ]
     },

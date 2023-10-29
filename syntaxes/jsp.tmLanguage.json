@@ -10,6 +10,16 @@
         { "include": "text.xml" },
         { "include": "text.html.basic" }
     ],
+    "injections": {
+        "string.quoted.double -meta.embedded.block.java -source.js, string.quoted.single -meta.embedded.block.java -source.js": {
+            "patterns": [{ "include": "source.jsp" }],
+            "comment": "allow all expression inside of quotes"
+        },
+        "meta.tag.xml -meta.embedded.block.java, L:meta.var.expr.js": {
+            "patterns": [{ "include": "#scriptlet" }],
+            "comment": "allow scriptlets within xml and javascript"
+        }
+    },
     "repository": {
         "comment": {
             "name": "comment.block.jsp",
@@ -18,7 +28,7 @@
         },
         "scriptlet": {
             "name": "meta.tag.xml",
-            "contentName": "meta.embedded.block.scriptlet.jsp meta.embedded.block.java",
+            "contentName": "meta.embedded.block.java",
             "begin": "(<)(%)",
             "end": "(%)(>)",
             "beginCaptures": {
@@ -39,7 +49,7 @@
         },
         "expression": {
             "name": "string.template.jsp",
-            "contentName": "meta.embedded.block.expression.jsp meta.embedded.block.java",
+            "contentName": "meta.embedded.block.java",
             "begin": "\\$\\{",
             "end": "\\}",
             "beginCaptures": {
