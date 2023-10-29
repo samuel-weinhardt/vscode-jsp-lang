@@ -2,7 +2,8 @@
 
 ## 0.1.3
 
-- Add explicit handling for directies
+- Add explicit handling for directives
+- Replace xml with html.derivative for better HTML matching
 
 ## 0.1.2
 
