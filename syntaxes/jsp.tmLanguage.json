@@ -6,23 +6,22 @@
     "patterns": [
         { "include": "#comment" },
         { "include": "#directive" },
-        { "include": "#scriptlet" },
         { "include": "#expression" },
         { "include": "text.html.derivative" }
     ],
     "injections": {
-        "L:meta -meta.embedded.block.scriptlet.jsp": {
+        "L:text.html.jsp -meta.tag.directive.jsp -meta.tag.scriptlet.jsp": {
             "patterns": [
                 { "include": "#scriptlet" }
             ],
-            "comment": "allow scriptlets most anywhere"
+            "comment": "allow scriptlets anywhere except nested"
         },
-        "L:(string.quoted.single.html | string.quoted.double.html) -meta.embedded.block": {
+        "L:meta.attribute (string.quoted.single.html | string.quoted.double.html) -string.template.expression.jsp": {
             "patterns": [
                 { "include": "#expression" },
                 { "include": "text.html.derivative" }
             ],
-            "comment": "also allow expressions and tags within xml strings"
+            "comment": "allow expressions and tags within HTML attributes (not nested)"
         }
     },
     "repository": {
@@ -32,7 +31,7 @@
             "end": "--%>"
         },
         "directive": {
-            "name": "meta.tag.jsp",
+            "name": "meta.tag.directive.jsp",
             "begin": "(<)(%@)",
             "end": "(%)(>)",
             "beginCaptures": {
@@ -45,7 +44,7 @@
             },
             "patterns": [
                 {
-                    "match": "\\b(page|include|taglib)\\b",
+                    "match": "\\b(page|include|taglib)\\b(?!\\s*=)",
                     "name": "keyword.control.directive.jsp"
                 },
                 {
@@ -63,8 +62,8 @@
             ]
         },
         "scriptlet": {
-            "name": "meta.tag.jsp",
-            "contentName": "meta.embedded.block.scriptlet.jsp meta.embedded.block.java",
+            "name": "meta.tag.scriptlet.jsp",
+            "contentName": "meta.embedded.block.java",
             "begin": "(<)(%[\\s!=])",
             "end": "(%)(>)",
             "beginCaptures": {
@@ -84,8 +83,8 @@
             ]
         },
         "expression": {
-            "name": "string.template.jsp",
-            "contentName": "meta.embedded.block.expression.jsp meta.embedded.block.java",
+            "name": "string.template.expression.jsp",
+            "contentName": "meta.embedded.block.java",
             "begin": "\\$\\{",
             "end": "\\}",
             "beginCaptures": {
