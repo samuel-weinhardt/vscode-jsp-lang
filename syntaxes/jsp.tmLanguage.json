@@ -11,13 +11,16 @@
         { "include": "text.html.basic" }
     ],
     "injections": {
-        "string.quoted.double -meta.embedded.block.java -source.js, string.quoted.single -meta.embedded.block.java -source.js": {
-            "patterns": [{ "include": "source.jsp" }],
-            "comment": "allow all expression inside of quotes"
-        },
-        "meta.tag.xml -meta.embedded.block.java, L:meta.var.expr.js": {
+        "L:meta -meta.embedded.block.scriptlet.jsp": {
             "patterns": [{ "include": "#scriptlet" }],
-            "comment": "allow scriptlets within xml and javascript"
+            "comment": "allow scriptlets most anywhere"
+        },
+        "L:(string.quoted.single.xml | string.quoted.double.xml) -meta.embedded.block": {
+            "patterns": [
+                { "include": "#expression" },
+                { "include": "text.xml" }
+            ],
+            "comment": "also allow expressions and tags within xml strings"
         }
     },
     "repository": {
@@ -28,8 +31,8 @@
         },
         "scriptlet": {
             "name": "meta.tag.xml",
-            "contentName": "meta.embedded.block.java",
-            "begin": "(<)(%)",
+            "contentName": "meta.embedded.block.scriptlet.jsp meta.embedded.block.java",
+            "begin": "(<)(%[!=]?)",
             "end": "(%)(>)",
             "beginCaptures": {
                 "1": { "name": "punctuation.definition.tag.xml" },
@@ -49,7 +52,7 @@
         },
         "expression": {
             "name": "string.template.jsp",
-            "contentName": "meta.embedded.block.java",
+            "contentName": "meta.embedded.block.expression.jsp meta.embedded.block.java",
             "begin": "\\$\\{",
             "end": "\\}",
             "beginCaptures": {
