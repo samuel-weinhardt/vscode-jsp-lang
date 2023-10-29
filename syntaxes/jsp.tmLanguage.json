@@ -12,7 +12,9 @@
     ],
     "injections": {
         "L:meta -meta.embedded.block.scriptlet.jsp": {
-            "patterns": [{ "include": "#scriptlet" }],
+            "patterns": [
+                { "include": "#scriptlet" }
+            ],
             "comment": "allow scriptlets most anywhere"
         },
         "L:(string.quoted.single.xml | string.quoted.double.xml) -meta.embedded.block": {
@@ -62,7 +64,10 @@
                 "0": { "name": "punctuation.definition.template-expression.end.jsp" }
             },
             "patterns": [
-                { "match": "\\\\.", "name": "constant.character.escape.jsp" },
+                {
+                    "match": "\\\\.",
+                    "name": "constant.character.escape.jsp"
+                },
                 { "include": "source.java" }
             ]
         }
