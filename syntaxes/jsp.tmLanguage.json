@@ -5,6 +5,7 @@
     "scopeName": "source.jsp",
     "patterns": [
         { "include": "#comment" },
+        { "include": "#directive" },
         { "include": "#scriptlet" },
         { "include": "#expression" },
         { "include": "text.xml" },
@@ -31,22 +32,53 @@
             "begin": "<%--",
             "end": "--%>"
         },
-        "scriptlet": {
-            "name": "meta.tag.xml",
-            "contentName": "meta.embedded.block.scriptlet.jsp meta.embedded.block.java",
-            "begin": "(<)(%[!=]?)",
+        "directive": {
+            "name": "meta.tag.jsp",
+            "begin": "(<)(%@)",
             "end": "(%)(>)",
             "beginCaptures": {
-                "1": { "name": "punctuation.definition.tag.xml" },
-                "2": { "name": "entity.name.tag.xml" }
+                "1": { "name": "punctuation.definition.tag.jsp" },
+                "2": { "name": "entity.name.tag.jsp" }
             },
             "endCaptures": {
-                "1": { "name": "entity.name.tag.xml" },
-                "2": { "name": "punctuation.definition.tag.xml" }
+                "1": { "name": "entity.name.tag.jsp" },
+                "2": { "name": "punctuation.definition.tag.jsp" }
             },
             "patterns": [
                 {
-                    "match": "\\{\\s*((?=%>)|$)",
+                    "match": "(page|include|taglib)",
+                    "name": "keyword.control.directive.jsp"
+                },
+                {
+                    "match": "(\\S+)((?=\\s*=))",
+                    "name": "entity.other.attribute-name.localname.jsp"
+                },
+                {
+                    "name": "string.quoted.double.jsp",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        { "include": "#escape" }
+                    ]
+                }
+            ]
+        },
+        "scriptlet": {
+            "name": "meta.tag.jsp",
+            "contentName": "meta.embedded.block.scriptlet.jsp meta.embedded.block.java",
+            "begin": "(<)(%[\\s!=])",
+            "end": "(%)(>)",
+            "beginCaptures": {
+                "1": { "name": "punctuation.definition.tag.jsp" },
+                "2": { "name": "entity.name.tag.jsp" }
+            },
+            "endCaptures": {
+                "1": { "name": "entity.name.tag.jsp" },
+                "2": { "name": "punctuation.definition.tag.jsp" }
+            },
+            "patterns": [
+                {
+                    "match": "\\{(?=\\s*(%>|$))",
                     "comment": "consume trailing curly brackets for fragmented scriptlets"
                 },
                 { "include": "source.java" }
@@ -64,12 +96,13 @@
                 "0": { "name": "punctuation.definition.template-expression.end.jsp" }
             },
             "patterns": [
-                {
-                    "match": "\\\\.",
-                    "name": "constant.character.escape.jsp"
-                },
+                { "include": "#escape" },
                 { "include": "source.java" }
             ]
+        },
+        "escape": {
+            "match": "\\\\.",
+            "name": "constant.character.escape.jsp"
         }
     }
 }
