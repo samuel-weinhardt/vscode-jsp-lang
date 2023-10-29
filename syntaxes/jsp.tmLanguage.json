@@ -8,8 +8,7 @@
         { "include": "#directive" },
         { "include": "#scriptlet" },
         { "include": "#expression" },
-        { "include": "text.xml" },
-        { "include": "text.html.basic" }
+        { "include": "text.html.derivative" }
     ],
     "injections": {
         "L:meta -meta.embedded.block.scriptlet.jsp": {
@@ -18,7 +17,7 @@
             ],
             "comment": "allow scriptlets most anywhere"
         },
-        "L:(string.quoted.single.xml | string.quoted.double.xml) -meta.embedded.block": {
+        "L:(string.quoted.single.html | string.quoted.double.html) -meta.embedded.block": {
             "patterns": [
                 { "include": "#expression" },
                 { "include": "text.xml" }
