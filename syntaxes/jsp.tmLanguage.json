@@ -10,11 +10,11 @@
         { "include": "text.html.derivative" }
     ],
     "injections": {
-        "L:text.html.jsp -meta.tag.directive.jsp -meta.tag.scriptlet.jsp": {
+        "L:text.html.jsp -comment -meta.tag.directive.jsp -meta.tag.scriptlet.jsp": {
             "patterns": [
                 { "include": "#scriptlet" }
             ],
-            "comment": "allow scriptlets anywhere except nested"
+            "comment": "allow scriptlets anywhere except comments and nested"
         },
         "L:meta.attribute (string.quoted.single.html | string.quoted.double.html) -string.template.expression.jsp": {
             "patterns": [
