@@ -2,7 +2,7 @@
     "name": "vscode-jsp-lang",
     "displayName": "JSP Language Support",
     "description": "JSP syntax highlighting for VS Code",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "publisher": "samuel-weinhardt",
     "license": "MIT",
     "icon": "./assets/icon.png",
