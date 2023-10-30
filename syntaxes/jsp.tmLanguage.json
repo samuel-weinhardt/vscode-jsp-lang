@@ -85,7 +85,7 @@
         "expression": {
             "name": "string.template.expression.jsp",
             "contentName": "meta.embedded.block.java",
-            "begin": "\\$\\{",
+            "begin": "[$#]\\{",
             "end": "\\}",
             "beginCaptures": {
                 "0": { "name": "punctuation.definition.template-expression.begin.jsp" }
