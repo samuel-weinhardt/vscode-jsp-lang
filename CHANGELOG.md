@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.1.7]
+
+- Add additional directive keywords
+
 ## [0.1.6]
 
 - Support deferred evaluation expressions

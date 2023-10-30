@@ -44,7 +44,7 @@
             },
             "patterns": [
                 {
-                    "match": "\\b(page|include|taglib)\\b(?!\\s*=)",
+                    "match": "\\b(attribute|include|page|tag|taglib|variable)\\b(?!\\s*=)",
                     "name": "keyword.control.directive.jsp"
                 },
                 {
