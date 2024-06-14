@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.1.8]
+
+- Add emmet configuration option instructions to README
+
 ## [0.1.7]
 
 - Add additional directive keywords
