@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.1.9]
+
+- Improve attribute matching within directives
+
 ## [0.1.8]
 
 - Add emmet configuration option instructions to README
